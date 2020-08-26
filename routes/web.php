@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,6 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 |
 */
 
-Route::get('/as', function () {
-    echo shell_exec("py index.py");
-    // $process = new Process(['py'], 'F:\TA\anlosia\public\index.py');
-    // $process->run();
+Route::post('/post', 'TestController@index');
 
-    // // executes after the command finishes
-    // if (!$process->isSuccessful()) {
-    //     throw new ProcessFailedException($process);
-    // }
-
-    // echo $process->getOutput();
-    // exit;
-});
+Route::get('form', 'TestController@form');

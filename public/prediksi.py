@@ -1,6 +1,7 @@
 import numpy as np
 import os
 import cv2
+import sys
 
 pengenalWajah = cv2.face.LBPHFaceRecognizer_create()
 detektor = cv2.CascadeClassifier("haarcascade/haarcascade_frontalface_default.xml")
@@ -34,14 +35,8 @@ def prediksiWajah(namaBerkas):
             (0,255,0))
     cv2.imshow("Hasil",citra)
     print(konfiden)
-    
+
 pengenalWajah.read("pelatihan.yml")
-prediksiWajah("satrio.png")
-prediksiWajah("indrak.png")
-prediksiWajah("Screenshot_7.jpg")
-prediksiWajah("Screenshot_1.jpg")
-prediksiWajah("Screenshot_2.jpg")
-prediksiWajah("Screenshot_3.jpg")
-prediksiWajah("Screenshot_4.jpg")
+prediksiWajah(sys.argv[1])
 
 
